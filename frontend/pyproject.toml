@@ -1,0 +1,16 @@
+[project]
+name = "frontend-image_label"
+version = "0.0.1"
+dependencies = [
+    "flask",
+    "python-dotenv"
+]
+requires-python = ">=3.11"
+authors = [
+  {name = "Andres Ortiz", email = "candresortizm@gmail.com"}
+]
+maintainers = [
+  {name = "Andres Ortiz", email = "candresortizm@gmail.com"}
+]
+description = "Proyecto frontend para que se cargue una imagen, y se envía a un endpoint de una API."
+readme = "README.md"
