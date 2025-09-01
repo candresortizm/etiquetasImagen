@@ -23,3 +23,13 @@ pip install .
 Ejecutar el Api:
 
 python .\src\api_handler.py 
+
+## Ejecución con Docker:
+
+Hacer la construcción de la imagen de Docker:
+
+docker build -t backend-api .
+
+Ejecutar un contenedor:
+
+docker run -p 8000:8000 --env-file .env backend-api
