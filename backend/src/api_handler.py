@@ -9,10 +9,23 @@ app = FastAPI(title="EtiquetasImagen",docs_url="/api/docs", redoc_url=None)
 
 v1_router = APIRouter(prefix="/api")
 
+#Inclusión del host frontend para aceptar las peticiones
+origins = [
+    "http://localhost:5000", #Para el consumo desde el proyecto frontend
+]
+
+#Configuración CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Ruta para analizar una imagen
 # input: archivo cargado
 # otput: Json entregado por la función obtener_analisis del modulo anlisis
-# TODO: Validaciones de entrada del tipo de archivo.
 @v1_router.post("/analyze")
 def analizar_imagen(file: UploadFile):
     try:
