@@ -1,0 +1,32 @@
+services:
+  backend:
+    build: ./backend
+    container_name: backend-api
+    ports:
+      - "8000:8000"
+    environment:
+      - VISION_ENDPOINT=${VISION_ENDPOINT}
+      - API_KEY=${API_KEY}
+      - TRANSLATION_ENDPOINT=${TRANSLATION_ENDPOINT}
+    env_file:
+      - .env
+    networks:
+      - network-api-web
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: frontend-web
+    ports:
+      - "5000:5000"
+    environment:
+      - API_URL=http://localhost:8000/api/analyze
+    depends_on:
+      - backend
+    networks:
+      - network-api-web
+    restart: unless-stopped
+
+networks:
+  network-api-web:
+    driver: bridge
