@@ -24,3 +24,11 @@
     width: 100%;
     z-index: 9999;
 }
+
+.result, .alert-danger {
+  display: none;
+}
+
+.result p{
+  white-space: pre-wrap;
+}

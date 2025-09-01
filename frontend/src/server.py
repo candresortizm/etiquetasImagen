@@ -8,7 +8,8 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def index():
-    return render_template("upload.html")
+    url_servicio = os.environ.get('API_URL')
+    return render_template("upload.html",data=url_servicio)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
