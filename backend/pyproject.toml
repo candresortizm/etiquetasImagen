@@ -1,0 +1,19 @@
+[project]
+name = "api-image_label"
+version = "0.0.1"
+dependencies = [
+    "uvicorn==0.34.0",
+    "fastapi==0.115.11",
+    "python-dotenv",
+    "requests",
+    "python-multipart"
+]
+requires-python = ">=3.11"
+authors = [
+  {name = "Andres Ortiz", email = "candresortizm@gmail.com"}
+]
+maintainers = [
+  {name = "Andres Ortiz", email = "candresortizm@gmail.com"}
+]
+description = "Proyecto API para que se cargue una imagen, se consuma un servició de IA de detección de etiquetas y retorne el JSON con la respuesta de las etiquetas halladas en la imagen."
+readme = "README.md"
