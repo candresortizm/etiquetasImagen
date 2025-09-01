@@ -22,3 +22,14 @@ pip install .
 Ejecutar el Api:
 
 python .\src\server.py 
+
+
+## Ejecución con Docker:
+
+Hacer la construcción de la imagen de Docker:
+
+docker build -t frontend-web .
+
+Ejecutar un contenedor:
+
+docker run -p 5000:5000 --env-file .env frontend-web
