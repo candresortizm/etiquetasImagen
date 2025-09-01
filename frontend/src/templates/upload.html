@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>Extracción de etiquetas de una imagen</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+  <div class="loader-container">
+    <div class="loader"></div>
+  </div>
+  <div class="container mt-5">
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <span></span>
+      <button type="button" class="btn-close" aria-label="Close"></button>
+      </button>
+    </div>
+    <div class="row">
+      <br>
+      <h1>Seleccione el archivo</h1>
+      <form id="formularioAnalisis" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.tif,.tiff, .jfif" required>
+        <br>
+        <button type="submit" class="btn btn-primary">Analizar imagen</button>
+      </form>
+    </div>
+    <div class="row">
+      <div class="col-6 result">
+        <p></p>
+      </div>
+      <div class="col-6">
+        <img id="preview" style="max-width: 300px; display: none;" />  
+      </div>
+    </div>
+  </div>
+  <script>
+    //Para cargar la url de API desde las variables de entorno
+    const API_URL = "{{data | safe}}";
+  </script>
+  <script src="{{url_for('static', filename='js/upload.js')}}"></script>
+</body>
+
+</html>
